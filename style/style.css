@@ -1,0 +1,166 @@
+/* Style Loadind svg */
+    #loading{
+        position: fixed;
+        width: 100%;
+        height:100vh;
+        background: #000
+        url(https://media0.giphy.com/media/N256GFy1u6M6Y/giphy.gif?cid=ecf05e47b28jkr0h9v1ti3qgp1fesgup82od1qpi3fws7f2j&rid=giphy.gif)
+        no-repeat
+        center;
+        z-index: 999999999;
+    }
+/* End loading svg */
+
+/* Styly Body */
+    body{
+        margin:0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #181a1d!important;
+    }
+/* End Style Body */
+
+/* Style Nav Section */
+    .nav_color{ 
+        background-color: rgba(20, 18, 18);
+        box-shadow: 0px 0px 2px 0px #fff;
+    }
+    nav a{
+        color: #f0f0f0;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+    nav a:hover{
+        color: #FFFFFF;
+    }
+    .navbar-brand h4{
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .navbar-brand h5{
+        font-weight: bold;
+    }
+    .navbar-brand{
+        padding: 5px;
+        border-radius: 3px;
+        box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.205);
+    }
+/* End nav style */
+
+/* Style Home Banner */
+    .container_home{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(180deg,rgba(0,0,0,.1),#000 93%),url(https://image.freepik.com/free-vector/futuristic-glowing-low-polygonal-coronavirus-covid-19-cell-isolated-dark-blue-background_67515-889.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: screen;
+    }
+    .content h2{ 
+        text-align: center;
+        font-size: 70px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+    }
+    .content h3{ 
+        text-align: center;
+        font-size: 40px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+    }
+    .content h4{ 
+        text-align: center;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+    }
+    .content p{ 
+        font-weight: bold;
+        text-align: center;
+    }
+    .content h4 span{
+        font-size: 20px;
+    }
+
+    .wave{
+        position: absolute;
+        bottom: 0;
+    }
+/* End home Baner Style */
+
+/* Line style */
+    .line{ 
+        content: " ";
+        background-color:#ffc107;
+        width: 100px;
+        height: 3px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 3px;
+    }
+/* End line Style */
+
+/* Style The Card */
+    .flex-wrap-row{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .body_case{
+        background-color: rgba(0, 0, 0, 0.575);
+        padding: 40px;
+        margin-top:10px;
+        border-radius: 10px;
+        box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.219);
+        width: 18rem;
+        cursor: pointer;
+        transition: 1s ease-in-out;
+    }
+    .body_case:hover{
+        background-color:rgba(49, 50, 126, 0.829);
+    }
+    .body_case p{
+        text-align: center;
+        font-weight: bold;
+    }
+    .body_case h3{
+        text-align: center;
+    }
+/* End Card Style */
+
+/* Search box Style */
+    .search_box{
+        margin-top: 20px;
+        display:flex;
+        justify-content:space-around;
+    }
+    .search_box input{
+        width: 50rem; 
+    }
+/* End Search Box Style */
+
+/* Style footer section */
+    .footer_color{
+        background-color:#00000027;
+    }
+    .footer_color .footer-contain{
+        text-align: center;
+        padding-top: 50px;
+        border-bottom: 1px solid white;
+    }
+    .footer_color .footer-contain h4{
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .footer_color .footer-contain h5{
+        font-weight: bold;
+    }
+    .developer{ 
+        padding: 20px;
+        text-align: center;
+    }
+/* End Footer style */

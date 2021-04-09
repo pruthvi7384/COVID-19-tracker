@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Tracker</title>
+    <!--link favicon-->
+    <link href="https://img.icons8.com/emoji/2x/microbe.png" rel="icon" type="image/x-icon" />
+    <!--Boostrap CSS CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!--Font Awesome Icons-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!--chart.js CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--External Style Sheet-->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body onload="myloader()">
+  <!--Added the loading div-->
+    <div id="loading"></div>
+  <!-- End loading -->
+
+  <!-- Nav bar section -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#home"><h4 class="text-light">COVID-19</h4> <h5 class="text-warning">Tracker <span class="text-info">INDIA</span></h5></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa fa-bars text-light" aria-hidden="true"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#india_total_cases">Total Cases</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#india_today_total_cases">New Cases</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#india_state_wise_status">State Wise Cases</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <!-- End the nav section -->
+
+  <!--Home Baner Section-->
+    <div class="container_home" id="home">
+        <div class="content">
+          <h2 class="text-light">COVID-19</h2>
+          <h3 class="text-warning">TRACKER <span class="text-info">INDIA</span></h3>
+          <h4 class="text-light">LAST UPDATE</h4>
+          <p class="text-light" id="update_date"><span></span></p>
+          <p class="text-light" id="update_time"></p>
+        </div>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#181a1d" fill-opacity="1" d="M0,192L80,213.3C160,235,320,277,480,266.7C640,256,800,192,960,176C1120,160,1280,192,1360,208L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+        </svg>
+    </div>
+  <!-- End Home baner section -->
+
+  <!--Add the total cases section-->
+    <div class="container-fluid" id="india_total_cases">
+      <h2 class="text-center text-light">TOTAL CASES</h2>
+      <div class="line"></div>
+      <div class="flex-wrap-row text-light mt-5">
+        <div class="body_case">
+            <p>TOTAL CASES</p>
+            <h3 class="text-primary" id="total_case"></h3>
+        </div>
+        <div class="body_case">
+          <p>TOTAL ACTIVE CASES</p>
+          <h3 class="text-warning" id="total_active"></h3>
+        </div>
+        <div class="body_case">
+          <p>TOTAL RECOVERED CASES</p>
+          <h3 class="text-success" id="total_recovered"></h3>
+        </div>
+        <div class="body_case">
+          <p>TOTAL DEATHS</p>
+          <h3 class="text-danger" id="total_deaths"></h3>
+        </div>
+      </div>
+    </div>
+  <!-- End the Total cases Section -->
+
+  <!--India Today New Cases Section-->
+    <div class="container-fluid mt-5" id="india_today_total_cases">
+      <h2 class="text-center text-light">NEW CASES</h2>
+      <div class="line"></div>
+      <div class="flex-wrap-row text-light mt-5">
+        <div class="body_case">
+          <p>NEW TOTAL CASES</p>
+          <h3 class="text-primary" id="today_case"></h3>
+        </div>
+        <div class="body_case">
+          <p>NEW ACTIVE CASES</p>
+          <h3 class="text-warning" id="today_active"></h3>
+        </div>
+        <div class="body_case">
+          <p>NEW RECOVERED CASES</p>
+          <h3 class="text-success" id="today_recovered"></h3>
+        </div>
+        <div class="body_case">
+          <p>NEW DEATHS</p>
+          <h3 class="text-danger" id="today_deaths"></h3>
+        </div>
+      </div>
+    </div>
+  <!-- End total cases section -->
+
+  <!--Chart India Section-->
+    <div class="container mt-5" style="height:100vh">
+      <canvas id="myChart1"></canvas>
+    </div>
+  <!--End The Chart India Section--> 
+
+  <!--State Wise Data India Section-->
+    <div class="container mt-5" id="india_state_wise_status">
+      <h2 class="text-center text-light">STATE WISE CASES</h2>
+      <div class="line"></div>
+
+      <!-- Total cases Table -->
+        <h3 class="text-center text-light mt-5">TOTAL CASES</h3>
+        <div class="line"></div>
+        <div class="search_box">
+          <input class="form-control" id="search_input" type="text" placeholder="Search state name here.." onkeyup="search()">
+        </div>
+        <div class="table-responsive mt-4">
+          <table class="table table-striped table-dark" id="table_search">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">STATE NAME</th>
+                <th scope="col">TOTAL CASES</th>
+                <th scope="col">TOTAL ACTIVE CASES</th>
+                <th scope="col">TOTAL RECOVERED CASES</th>
+                <th scope="col">TOTAL DEATHS</th>
+              </tr>
+            </thead>
+            <tbody id="create_state">
+              
+            </tbody>
+          </table>  
+        </div>
+      <!-- End total cases section -->
+
+      <!-- New cases table -->
+        <h3 class="text-center text-light mt-5">NEW CASES</h3>
+        <div class="line"></div>
+        <div class="search_box">
+          <input class="form-control" id="search_input_today" type="text" placeholder="Search state name here.." onkeyup="search_today()">
+        </div>
+        <div class="table-responsive-xl">
+          <table class="table table-striped table-dark mt-5" id="state_today">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">STATE NAME</th>
+                <th scope="col">TOTAL CASES</th>
+                <th scope="col">TOTAL ACTIVE CASES</th>
+                <th scope="col">TOTAL RECOVERED CASES</th>
+                <th scope="col">TOTAL DEATHS</th>
+              </tr>
+            </thead>
+            <tbody id="create_todat_state">
+            
+            </tbody>
+          </table>
+        </div>
+    </div>
+  <!--End the State Wise India Section  -->
+
+  <!---state wise cases chart-->
+    <div class="container-fluid mt-5" id="state-chart" style="height: 100vh">
+      <canvas id="myChart2"></canvas>
+    </div>
+  <!-- End state wise case chart-->
+
+  <!--footer section-->
+    <div class="container-fluid mt-5 footer_color">
+      <div class="col-xl-12 d-flex justify-content-center">
+        <div class="row footer-contain">
+          <h4 class="text-light">COVID-19</h4>
+          <h5 class="text-warning">TRACKER <span class="text-info">INDIA</span></h5>
+          <p class="text-light">&copy; COVID-19 CORONAVIRUS - 2020-2021. ALL RIGHTS RESERVED</p>
+      </div>
+      </div>
+      <div class="row developer">
+          <p class="text-light text-uppercase">DESIGNED BY ~ PRUTHVIRAJ RAJPUT</p>
+      </div>
+    </div>
+  <!-- End the Footer Section -->
+
+  <!--Java Script File Here-->
+    <!--jquery CDN-->
+      <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+    <!-- End jquery cdn -->
+
+    <!--Boostrap Js-->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <!-- End Boostrap Js -->
+
+    <!--External JS-->
+      <script type="text/javascript" src="js/script.js"></script>
+    <!--End External JS-->
+  <!-- End the Java File link -->
+
+</body>
+</html>
