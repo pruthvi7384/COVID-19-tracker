@@ -80,12 +80,12 @@
         if(h<10){
             h="0" + h;
         }
-        const min = upDa.getMinutes();
+        var min = upDa.getMinutes();
         if(min<10){
             min = "0" + min;
         }
 
-        const sec = upDa.getSeconds();
+        var sec = upDa.getSeconds();
         if(sec<10){
             sec = "0" + sec;
         }
